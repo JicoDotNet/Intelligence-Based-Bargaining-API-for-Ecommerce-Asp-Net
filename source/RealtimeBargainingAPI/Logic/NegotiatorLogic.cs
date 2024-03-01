@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using AIBasedRealtimeBargaining.Models;
+using DataAccess.AzureStorage.Core;
 
 namespace RealtimeBargainingAPI.Logic
 {
@@ -12,7 +13,7 @@ namespace RealtimeBargainingAPI.Logic
         readonly Random RandomObj;
         int PrevNegotiateCount = 0;
 		RequestCommand _reqCommand = null;
-        private DataAccess.AzureStorage. _tableManager;
+        private ExecuteTableManager _tableManager;
 
 		public NegotiatorLogic()
         {
@@ -206,7 +207,7 @@ namespace RealtimeBargainingAPI.Logic
             {
                 Query += @" and CustomerId eq " + CustomerId.Value + " and ProductId eq " + ProductId;
             }
-            List<NegotiatedCost> OldNCs = _tableManager.RetrieveEntity<NegotiatedCost>(Query);
+            IList<NegotiatedCost> OldNCs = _tableManager.RetrieveEntity<NegotiatedCost>(Query);
 
             // if rows found
             if (OldNCs.Count > 0)

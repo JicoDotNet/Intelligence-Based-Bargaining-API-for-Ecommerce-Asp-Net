@@ -9,6 +9,7 @@
 
   <ItemGroup>
     <PackageReference Include="Azure.Storage.Common" Version="12.18.1" />
+    <PackageReference Include="DataAccess.AzureStorage.Core" Version="1.0.0.1" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
   </ItemGroup>
 

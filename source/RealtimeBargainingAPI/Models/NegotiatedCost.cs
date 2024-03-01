@@ -1,4 +1,4 @@
-﻿using Microsoft.WindowsAzure.Storage.Table;
+﻿using DataAccess.AzureStorage.Core;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -6,7 +6,7 @@ using System.Web;
 
 namespace AIBasedRealtimeBargaining.Models
 {
-	public class NegotiatedCost : TableEntity
+	public class NegotiatedCost : ExecuteTableEntity
 	{
 		public long? CustomerId { get; set; }
 		public long ProductId { get; set; }

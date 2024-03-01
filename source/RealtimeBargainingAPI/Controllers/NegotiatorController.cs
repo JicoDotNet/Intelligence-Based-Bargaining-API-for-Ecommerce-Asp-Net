@@ -17,7 +17,7 @@ namespace RealtimeBargainingAPI.Controllers
             {
                 if (command.TokenKey != GenericLogic.DefaultToken)
                 {
-                    return Ok(new ResponseCommand { IsSuccess = false, StatusCode = HttpStatusCode.Unauthorized, Message = "You are Unauthorized.", _request = command, _response = null });
+                    return Unauthorized(new ResponseCommand { IsSuccess = false, StatusCode = HttpStatusCode.Unauthorized, Message = "You are Unauthorized.", _response = null });
                 }
                 if (command == null
                         || string.IsNullOrEmpty(command.Tenant)
@@ -28,7 +28,7 @@ namespace RealtimeBargainingAPI.Controllers
                         || command.ProductId <= 0
                         || command.ProposedCost <= 0)
                 {
-                    return Ok(new ResponseCommand { IsSuccess = false, StatusCode = HttpStatusCode.Forbidden, Message = "Param Mismatch", _request = command, _response = null });
+                    return Ok(new ResponseCommand { IsSuccess = false, StatusCode = HttpStatusCode.Forbidden, Message = "Param Mismatch", _response = null });
                 }
                 NegotiatorLogic negotiator = new NegotiatorLogic();
                 ResponseCommand response = new ResponseCommand()
@@ -36,14 +36,13 @@ namespace RealtimeBargainingAPI.Controllers
                     IsSuccess = true,
                     Message = "Success",
                     StatusCode = HttpStatusCode.OK,
-                    _request = command,
                     _response = negotiator.NextValue(command)
                 };
                 return Ok(response);
             }
             catch (Exception Ex)
             {
-                return Ok(new ResponseCommand { IsSuccess = false, StatusCode = HttpStatusCode.InternalServerError, Message = Ex.Message, _request = command, _response = null });
+                return Problem(Ex.Message, null, 500);// (new ResponseCommand { IsSuccess = false, StatusCode = HttpStatusCode.InternalServerError, Message = Ex.Message, _response = null });
             }
         }
     }
