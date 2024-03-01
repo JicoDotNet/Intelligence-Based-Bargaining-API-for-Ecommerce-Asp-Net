@@ -17,7 +17,7 @@ namespace RealtimeBargainingAPI.Logic
 		public NegotiatorLogic()
         {
 			RandomObj = new Random();
-			_tableManager = new ExecuteTableManager("NegotiatedCost", (object)GenericLogic.AzureStorageConnectionString);
+			_tableManager = new ExecuteTableManager("NegotiatedCost", GenericLogic.AzureStorageConnectionString);
         }
 
         public NegotiatedValue NextValue(RequestCommand command)
