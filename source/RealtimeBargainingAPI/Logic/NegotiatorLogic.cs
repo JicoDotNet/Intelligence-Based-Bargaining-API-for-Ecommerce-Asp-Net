@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using AIBasedRealtimeBargaining.Models;
-using DataAccess.AzureStorage;
 
 namespace RealtimeBargainingAPI.Logic
 {
