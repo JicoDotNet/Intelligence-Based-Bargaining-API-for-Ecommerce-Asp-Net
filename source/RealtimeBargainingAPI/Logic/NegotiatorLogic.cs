@@ -8,11 +8,11 @@ namespace RealtimeBargainingAPI.Logic
 {
     public sealed class NegotiatorLogic
     {
-        readonly string Token = null;
+        readonly string? Token = null;
 		private long? CustomerId = null;
         readonly Random RandomObj;
         int PrevNegotiateCount = 0;
-		RequestCommand _reqCommand = null;
+		RequestCommand? _reqCommand = null;
         private ExecuteTableManager _tableManager;
 
 		public NegotiatorLogic()
@@ -34,14 +34,18 @@ namespace RealtimeBargainingAPI.Logic
 
             NewNegotiatedCostObj.ProductId = command.ProductId;
             NewNegotiatedCostObj.CustomerId = command.CustomerId;
-            NewNegotiatedCostObj.Token = Token;
+            //NewNegotiatedCostObj.Token = Token;
             NewNegotiatedCostObj.NegotiateTimeStamp = GenericLogic.IstNow.TimeStamp();
 			NewNegotiatedCostObj.ProposedPrice = command.ProposedCost;
 			NewNegotiatedCostObj.PartitionKey = command.Tenant;
-			#endregion
+            #endregion
 
-			#region Get last Negotiated Cost depend on Token and/or CustomerId
-			NegotiatedCost LastNegotiatedCostObj = GetLastNegotiatedCost(NewNegotiatedCostObj.ProductId);
+            #region Get last Negotiated Cost depend on Token and/or CustomerId
+            NegotiatedCost? LastNegotiatedCostObj = GetLastNegotiatedCost(NewNegotiatedCostObj.ProductId);
+            if(LastNegotiatedCostObj != null)
+            {
+                throw new NullReferenceException("NegotiatedCost can not be null");
+            }
             #endregion
 
             #region Negotiation
@@ -196,7 +200,7 @@ namespace RealtimeBargainingAPI.Logic
             _tableManager.InsertEntity(Model);
         }
 
-        private NegotiatedCost GetLastNegotiatedCost(long ProductId)
+        private NegotiatedCost? GetLastNegotiatedCost(long ProductId)
         {
             string Query = "NegotiateTimeStamp gt " + GenericLogic.IstNow.AddHours(-24).TimeStamp() + "L";
             if (CustomerId == null)

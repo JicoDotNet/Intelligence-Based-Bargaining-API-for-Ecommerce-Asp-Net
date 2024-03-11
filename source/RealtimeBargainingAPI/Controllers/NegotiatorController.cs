@@ -11,7 +11,7 @@ namespace RealtimeBargainingAPI.Controllers
     public class NegotiatorController : ControllerBase
     {
         [HttpPost]
-        public async Task<IActionResult> Negotiate(RequestCommand command)
+        public IActionResult Negotiate(RequestCommand command)
         {
             try
             {
