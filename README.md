@@ -36,12 +36,12 @@ Bargaining help buyers and sellers negotiate the specifics of the deal and event
 #### Request - Body
 ```json
 {
-  "tokenKey": "bcd6b947-24c8-4151-956b-0e58bb504e84",
+  "tokenKey": "Your_Default_Token_goes_here",
   "tenant": "string",
   "customerId": 1,
   "productId": 1,
-  "proposedCost": 20,
-  "thresholdPrice": 20,
+  "proposedCost": 50,
+  "thresholdPrice": 80,
   "offerPrice": 100
 }
 ```
@@ -60,8 +60,8 @@ Bargaining help buyers and sellers negotiate the specifics of the deal and event
       "ProductId": 1,
       "NegotiateTime": "2022-12-20T20:58:08.9645334Z",
       "NegotiateTimeStamp": 1671569888714,
-      "ProposedPrice": 12,
-      "OfferedPrice": 942
+      "ProposedPrice": 50,
+      "OfferedPrice": 94
     }
   }
 }
