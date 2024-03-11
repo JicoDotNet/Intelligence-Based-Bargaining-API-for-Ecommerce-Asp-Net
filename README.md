@@ -4,7 +4,6 @@
 ## About
 
 Bargaining plays a very important role in the mind of the customers to get them higher quality products, better customer services at lower prices. It is an invariable mindset and nature amongst Indian masses which rather plays an important role in buyer seller relationship. Better bargaining leads the customer to visit the store over and over again ; in this case the customer will use the app invariable times.
-
 We are providing a platform where any Ecommerce app can consume this service by **REST API** and will get AI based real time Bargaining features. 
 
 
@@ -33,7 +32,21 @@ Bargaining help buyers and sellers negotiate the specifics of the deal and event
 | `ThresholdPrice` | `number` |**✓** |Lowest value of Product |
 | `OfferPrice` | `number` |**✓** |Display Price od Product |
 
-#### Response
+
+#### Request - Body
+```json
+{
+  "tokenKey": "Your_Default_Token_goes_here",
+  "tenant": "string",
+  "customerId": 1,
+  "productId": 1,
+  "proposedCost": 50,
+  "thresholdPrice": 80,
+  "offerPrice": 100
+}
+```
+
+#### Response 
 
 ```json
 {
@@ -47,8 +60,8 @@ Bargaining help buyers and sellers negotiate the specifics of the deal and event
       "ProductId": 1,
       "NegotiateTime": "2022-12-20T20:58:08.9645334Z",
       "NegotiateTimeStamp": 1671569888714,
-      "ProposedPrice": 12,
-      "OfferedPrice": 942
+      "ProposedPrice": 50,
+      "OfferedPrice": 94
     }
   }
 }
@@ -56,16 +69,22 @@ Bargaining help buyers and sellers negotiate the specifics of the deal and event
 
 ## Tech Stack
 
-Asp.Net, AzureTableStorage, C#
+- Asp.Net
+- [Azure Table Storage](https://learn.microsoft.com/en-us/azure/storage/tables/table-storage-overview)
+- C#
+
+## Prerequisites
+- Windows 10 0r 11 with [Visual Studio 2022](https://visualstudio.microsoft.com/vs/)
+- [.NET 8.0](https://dotnet.microsoft.com/en-us/download/dotnet/8.0)
+
+After installing prerequisites, restart Visual Studio
 
 ## Usage/Examples
-
-```asp.net
-
-Change the Connection String of Azure Table Storage from "GenericLogic" class
+```csharp
+//-- Change the Connection String of Azure Table Storage from "GenericLogic" class
+public static string AzureStorageConnectionString { get { return "Your_Azure_Storage_Connection_String"; } }
+public static string DefaultToken { get { return "Your_Default_Token_goes_here"; } }
 ```
-
-
 
 ## License
 
