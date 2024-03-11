@@ -42,10 +42,6 @@ namespace RealtimeBargainingAPI.Logic
 
             #region Get last Negotiated Cost depend on Token and/or CustomerId
             NegotiatedCost? LastNegotiatedCostObj = GetLastNegotiatedCost(NewNegotiatedCostObj.ProductId);
-            if(LastNegotiatedCostObj != null)
-            {
-                throw new NullReferenceException("NegotiatedCost can not be null");
-            }
             #endregion
 
             #region Negotiation
