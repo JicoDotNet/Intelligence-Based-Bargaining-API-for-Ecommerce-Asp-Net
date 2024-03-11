@@ -3,7 +3,7 @@
 
 ## About
 
-Bargaining plays a very important role in the mind of the customers to get them higher quality products, better customer services at lower prices. It is an invariable mindset and nature amongst Indian masses which rather plays an important role in buyer seller relationship. Better bargaining leads the customer to visit the store over and over again; in this case the customer will use the app invariable times.
+Bargaining plays a very important role in the mind of the customers to get them higher quality products, better customer services at lower prices. It is an invariable mindset and nature amongst Indian masses which rather plays an important role in buyer seller relationship. Better bargaining leads the customer to visit the store over and over again ; in this case the customer will use the app invariable times.
 
 We are providing a platform where any Ecommerce app can consume this service by **REST API** and will get AI based real time Bargaining features. 
 
@@ -69,4 +69,4 @@ Change the Connection String of Azure Table Storage from "GenericLogic" class
 
 ## License
 
-[MIT](https://choosealicense.com/licenses/mit/)
+[GPL-3.0](https://choosealicense.com/licenses/gpl-3.0/)
