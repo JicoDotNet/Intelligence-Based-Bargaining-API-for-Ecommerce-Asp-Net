@@ -20,7 +20,7 @@ Bargaining help buyers and sellers negotiate the specifics of the deal and event
 ```http
   POST: /api/Negotiator/Negotiate
 ```
-#### Request - JSON
+#### Request - Body (Param)
 
 | Parameter | Type     |  Required  |Description |
 | :-------- | :------- | :---------- |:--- |
@@ -33,7 +33,7 @@ Bargaining help buyers and sellers negotiate the specifics of the deal and event
 | `OfferPrice` | `number` |**✓** |Display Price od Product |
 
 
-#### Request - Body
+#### Request - JSON
 ```json
 {
   "tokenKey": "Your_Default_Token_goes_here",
